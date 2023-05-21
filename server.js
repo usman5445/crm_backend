@@ -48,7 +48,7 @@ mongoose.connect(dbConfig.DB_URL);
 async function init() {
 
 
-    var user = await User.findOne({ userId: "admin" });
+    var user = await User.findOne({ userId: "admin1" });
 
     if (user) {
          console.log("Admin user already present");
@@ -59,10 +59,10 @@ async function init() {
 
         user = await User.create({
             name: "Vishwa",
-            userId: "admin", // It should be atleat 16, else will throw error
+            userId: "admin1", // It should be atleat 16, else will throw error
             email: "Kankvish@gmail.com",  // If we don't pass this, it will throw the error
             userType: "ADMIN",
-            password :bcrypt.hashSync("Welcome1", 8) //this field should be hidden from the end user
+            password :bcrypt.hashSync("admin1", 8) //this field should be hidden from the end user
 
         });
         console.log(user);
