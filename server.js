@@ -48,11 +48,11 @@ mongoose.connect(dbConfig.DB_URL);
 async function init() {
 
 
-    var user = await User.findOne({ userId: "admin1" });
+    var user = await User.findOneAndDelete({ userId: "admin1" });
 
     if (user) {
-         console.log("Admin user already present");
-        return;
+         console.log("Admin user deleted successfully");
+       
     }
 
     try {
@@ -65,7 +65,7 @@ async function init() {
             password :bcrypt.hashSync("admin1", 8) //this field should be hidden from the end user
 
         });
-        console.log(user);
+        console.log(user,'new admin created successfully);
 
     } catch (e) {
         console.log(e.message);
