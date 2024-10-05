@@ -35,7 +35,7 @@ mongoose.connect(dbConfig.DB_URL);
       console.log("error while connecting to DB");
   }) ;
   db.once("open",async()=>{
-      await init();
+    //   await init();
       console.log("connected to Mongo DB ")
   })
 
@@ -68,7 +68,7 @@ async function init() {
         console.log(user,'new admin created successfully');
 
     } catch (e) {
-        console.log(e.message);
+        console.log(e.message,e);
     }
 
 }
@@ -81,6 +81,11 @@ async function init() {
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/ticket.routes')(app);
+
+app.get('/',async(req,res)=>{
+    await init();
+    res.send('backend working..')
+})
 
 app.listen(serverConfig.PORT, () => {
     console.log(`Application started on the port num : ${serverConfig.PORT}`);
