@@ -34,9 +34,9 @@ mongoose.connect(dbConfig.DB_URL);
  db.on("error", ()=>{
       console.log("error while connecting to DB");
   }) ;
-  db.once("open",()=>{
-     console.log("connected to Mongo DB ")
-     init();
+  db.once("open",async()=>{
+      await init();
+      console.log("connected to Mongo DB ")
   })
 
 /**
