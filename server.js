@@ -58,9 +58,9 @@ async function init() {
     try {
 
         user = await User.create({
-            name: "Vishwa",
+            name: "Usman",
             userId: "admin1", // It should be atleat 16, else will throw error
-            email: "Kankvish@gmail.com",  // If we don't pass this, it will throw the error
+            email: "usmangavandi5445@gmail.com",  // If we don't pass this, it will throw the error
             userType: "ADMIN",
             password :bcrypt.hashSync("admin1", 8) //this field should be hidden from the end user
 
@@ -85,3 +85,6 @@ require('./routes/ticket.routes')(app);
 app.listen(serverConfig.PORT, () => {
     console.log(`Application started on the port num : ${serverConfig.PORT}`);
 })
+
+
+module.exports = app;
