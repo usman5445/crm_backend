@@ -21,7 +21,9 @@ app.use(bodyParser.urlencoded({extended :true}));
  * 
  * Why ? Make sure you ask your doubt in the sessions :P 
  */
- app.use(cors());
+ app.use(cors(
+   ['https://crm-usman.vercel.app/']
+ ));
 
 
 
